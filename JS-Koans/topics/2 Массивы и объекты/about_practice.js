@@ -1,5 +1,5 @@
 describe("About Applying What We Have Learnt (about_applying_what_we_have_learnt.js)", function() {
-
+  
   let products;
 
   beforeEach(function () {
@@ -16,25 +16,15 @@ describe("About Applying What We Have Learnt (about_applying_what_we_have_learnt
 
   it("given I'm allergic to nuts and hate mushrooms, it should find a pizza I can eat (imperative)", function () {
 
-    let hasMushrooms;
     let productsICanEat = [];
-
-    for (let i = 0; i < products.length; i+=1) {
-      if (products[i].containsNuts === false) {
-        hasMushrooms = false;
-        for (let j = 0; j < products[i].ingredients.length; j+=1) {
-          if (products[i].ingredients[j] === "mushrooms") {
-            hasMushrooms = true;
-          }
-        }
-
-        if (!hasMushrooms) {
-          productsICanEat.push(products[i]);
-        }
+  
+    for (let i = 0; i < products.length; i += 1) {
+      if (products[i].containsNuts === false && !products[i].ingredients.includes("mushrooms")) {
+        productsICanEat.push(products[i]);
       }
     }
-
-    expect(productsICanEat.length).toBe(FILL_ME_IN);
+  
+    expect(productsICanEat.length).toBe(1); 
   });
 
   it("should add all the natural numbers below 1000 that are multiples of 3 or 5 (imperative)", function () {
@@ -46,12 +36,12 @@ describe("About Applying What We Have Learnt (about_applying_what_we_have_learnt
       }
     }
 
-    expect(sum).toBe(FILL_ME_IN);
+    expect(sum).toBe(233168); // Сумма натуральных чисел, кратных 3 или 5, ниже 1000
   });
 
   /*********************************************************************************/
    it("should count the ingredient occurrence (imperative)", function () {
-    let ingredientCount = { "{ingredient name}": 0 };
+    let ingredientCount = {};
 
     for (let i = 0; i < products.length; i+=1) {
       for (let j = 0; j < products[i].ingredients.length; j += 1) {
@@ -59,6 +49,6 @@ describe("About Applying What We Have Learnt (about_applying_what_we_have_learnt
       }
     }
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(2); // Подсчитываем количество 'mushrooms'
   });
 });
