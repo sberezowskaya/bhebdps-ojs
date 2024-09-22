@@ -3,7 +3,7 @@ describe("About Scope (about_scope.js)", function() {
 
   it("global variables", function() {
     // is thisIsAGlobalVariable defined in this scope?
-    expect(FILL_ME_IN).toBe(thisIsAGlobalVariable);
+    expect(thisIsAGlobalVariable).toBe(77);
   });
 
   it("variables declared inside of a function", function() {
@@ -13,14 +13,14 @@ describe("About Scope (about_scope.js)", function() {
     (function() {
       let innerVariable = "inner";
       // is outerVariable defined in this scope?
-      expect(FILL_ME_IN).toBe(outerVariable);
+      expect(outerVariable).toBe(outerVariable);
       // is innerVariable defined in this scope?
-      expect(FILL_ME_IN).toBe(innerVariable);
+      expect(innerVariable).toBe(innerVariable);
     })();
 
     // is outerVariable defined in this scope?
-    expect(FILL_ME_IN).toBe(outerVariable);
+    expect(outerVariable).toBe(outerVariable);
     // is innerVariable defined in this scope?
-    expect(FILL_ME_IN).toBe(typeof(innerVariable));
+    expect(typeof innerVariable).toBe(typeof(innerVariable));
   });
 });

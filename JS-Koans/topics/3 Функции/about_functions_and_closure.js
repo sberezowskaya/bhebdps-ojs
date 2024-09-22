@@ -7,7 +7,7 @@ describe("About Functions And Closure (about_functions_and_closure.js)", functio
     };
     changeResult();
     // what is the value of result?
-    expect(FILL_ME_IN).toBe(result);
+    expect(result).toBe("b");
   });
 
   it("assigning functions to variables", function() {
@@ -15,7 +15,7 @@ describe("About Functions And Closure (about_functions_and_closure.js)", functio
       return input * 3;
     };
     // what is triple 4?
-    expect(FILL_ME_IN).toBe(triple(4));
+    expect(triple(4)).toBe(12);
   });
 
   it("self invoking functions", function() {
@@ -25,33 +25,32 @@ describe("About Functions And Closure (about_functions_and_closure.js)", functio
     (function(pv) {
       let secretValue = "password";
       // what is the value of pv?
-      expect(FILL_ME_IN).toBe(pv);
+      expect(pv).toBe("shared");
       // is secretValue available in this context?
-      expect(FILL_ME_IN).toBe(typeof(secretValue));
+      expect(typeof secretValue).toBe("string");
       // is publicValue available in this context?
-      expect(FILL_ME_IN).toBe(typeof(publicValue));
+      expect(typeof publicValue).toBe("string");
     })(publicValue);
 
     // is secretValue available in this context?
-    expect(FILL_ME_IN).toBe(typeof(secretValue));
+    expect(typeof secretValue).toBe("undefined");
     // is publicValue available in this context?
-    expect(FILL_ME_IN).toBe(typeof(publicValue));
+    expect(typeof publicValue).toBe("string");
   });
 
   it("arguments array", function() {
     let add = function() {
       let total = 0;
       for(let i = 0; i < arguments.length; i++) {
-        // complete the implementation of this method so that it returns the sum of its arguments
-        // FILL_ME_IN
+        total += arguments[i];
       }
-      // FILL_ME_IN
+      return total;
     };
 
     // add 1,2,3,4,5
-    expect(15).toBe(add(1,2,3,4,5));
+    expect(add(1,2,3,4,5)).toBe(15);
     // add 4,7,-2
-    expect(9).toBe(add(4,7,-2));
+    expect(add(4,7,-2)).toBe(9);
   });
 
   it("using call to invoke function",function(){
@@ -66,7 +65,7 @@ describe("About Functions And Closure (about_functions_and_closure.js)", functio
     let result = invokee.call("I am this!", "Where did it come from?");
 
     // what will the value of invokee's this be?
-    expect(FILL_ME_IN).toBe(result);
+    expect(result).toBe("I am this!Where did it come from?");
   });
 
   it("using apply to invoke function",function(){
@@ -80,6 +79,6 @@ describe("About Functions And Closure (about_functions_and_closure.js)", functio
     let result = invokee.apply("I am this!", ["I am arg1","I am arg2"]);
 
     // what will the value of invokee's this be?
-    expect(FILL_ME_IN).toBe(result);
+    expect(result).toBe("I am this!I am arg1I am arg2");
   });
 });
